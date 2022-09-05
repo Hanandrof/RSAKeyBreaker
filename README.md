@@ -1,10 +1,12 @@
 # RSAKeyBreaker
 Breaks RSA Key's to create a small coding challenge
 
-##DestroyKey.py
+## DestroyKey.py
 The destroy key script is used for producing the broken private RSA key that will be given to students via the pastebin. This program can be used to produce and break an original key, but for the sake of the ransomware environment we’ll need to feed an existing key into the script. We’ll take our private.pem file and have the script spit out our broken key with whatever name we choose with the command:
+```bash
 Python ./DestroyKey.py i private.pem -o newname.pem -s
-###Step-by-Step
+```
+### Step-by-Step
 First we either open an inputted RSA key and import it into pycryptodome or we generate a private RSA Key using pycryptodome and export it to a file.
 
 ```python
@@ -41,10 +43,12 @@ with open(options.outputName, 'w') as f:
     f.write(meanKey.decode("utf-8"))
 ```
 
-##RebuildKey.py
+## RebuildKey.py
 This script represents the suggested route that students will need to take in order to reconstruct their broken private RSA key. It will generate the unbroken key which should mirror the content of the original private.pem file perfectly. DO NOTE that this file will be in .key format, and this is fine. However, if you plan to test the rebuilt key with Decrypt_fernet_key.py, you’ll need to rename the file to ‘private.pem’ (you can add the -o option to make it output in your preferred format). The command for this script is as follows:
+```bash
 Python ./rebuildKey.py -i newname.pem 
-###Step-by-Step
+```
+### Step-by-Step
 First the rebuild key will open the private key file and extract the private key from the file
 
 ```python
