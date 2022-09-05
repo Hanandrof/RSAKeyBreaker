@@ -4,7 +4,7 @@ Breaks RSA Key's to create a small coding challenge
 ## DestroyKey.py
 The destroy key script is used for producing the broken private RSA key that will be given to students via the pastebin. This program can be used to produce and break an original key, but for the sake of the ransomware environment we’ll need to feed an existing key into the script. We’ll take our private.pem file and have the script spit out our broken key with whatever name we choose with the command:
 ```bash
-Python ./DestroyKey.py i private.pem -o newname.pem -s
+Python ./DestroyKey.py -i private.pem -o newname.pem -s
 ```
 ### Step-by-Step
 First we either open an inputted RSA key and import it into pycryptodome or we generate a private RSA Key using pycryptodome and export it to a file.
